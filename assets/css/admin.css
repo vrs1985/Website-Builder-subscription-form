@@ -1,0 +1,83 @@
+.collect-top-heading{
+    font-family: 'Orbitron';
+    text-align: center;
+}
+.collect-toogle-options{
+    font-family: 'Orbitron';
+    font-size: 16px;
+    margin: 0 auto;
+    width: 200px;
+    padding: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 1px solid black;
+    -webkit-border-radius: 6px;
+            border-radius: 6px;
+    background-color: #eee;
+    color: red;
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+.collect-toogle-options:hover{
+    background-color: #333;
+}
+.collect-btn-group{
+    text-align: center;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.collect-form{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+.subscribers-table > th{
+    border: 1px solid black;
+}
+.subscribers-table > thead {
+    font-size: 18px;
+    background-color: #aaa;
+}
+.subscribers-table > tbody > tr{
+    background-color: lightblue;
+}
+.subscribers-table > tbody > tr:nth-child(odd){
+    background-color: lightcoral;
+}
+.subscribers-table > tbody > tr > td{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 5px 15px;
+    border-collapse: collapse;
+}
+.subscribers-table > tbody > tr > td:first-child, .subscribers-table > tbody > tr > td:last-child{
+    width: 20px;
+}
+.subscribers-table > tbody > tr > td{
+    font-size: 18px;
+    width: 250px;
+}
+.remove-subscriber{
+    display: block;
+    margin: auto;
+    padding: 2px 4px;
+    border: 1px solid #F00;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    background-color: #F99;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+.remove-subscriber:hover{
+    background-color: #F00;
+    color: #000;
+}
