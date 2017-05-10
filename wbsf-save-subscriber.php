@@ -3,7 +3,7 @@
 add_action( 'wp_enqueue_scripts', 'my_enqueue', 99);
 
 function my_enqueue($hook) {
-  wp_enqueue_script( 'ajax-script', plugins_url( '/assets/js/public.js', __FILE__ ), array('jquery') );
+  wp_enqueue_script( 'ajax-script', plugins_url( '/assets/js/cubic.js', __FILE__ ), array('jquery') );
   // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
   wp_localize_script( 'ajax-script', 'myajax',
             array( 'url' => admin_url( 'admin-ajax.php' ) ) );

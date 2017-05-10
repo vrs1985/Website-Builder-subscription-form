@@ -108,7 +108,7 @@
     text-align: center;
 }
 .subscriber{
-    display: none;
+    display: block;
     position: absolute;
     z-index: 997;
 }
