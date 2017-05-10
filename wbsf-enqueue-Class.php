@@ -9,18 +9,18 @@ class mainClass_collect_email {
 
   public function admin_enqueue_styles() {
     wp_enqueue_style(
-        'collect-email-options-admin',
-        plugins_url( 'collect-email/assets/css/admin.css' ),
+        'wbsf-admin-style',
+        plugins_url( 'wbsf/assets/css/admin.css' ),
         array(),
-        '0.1.0'
+        '0.1.1'
       );
   }
   public function enqueue_styles() {
     wp_enqueue_style(
-        'collect-email-options',
-        plugins_url( 'collect-email/assets/css/public.css' ),
+        'wbsf-user-style',
+        plugins_url( 'wbsf/assets/css/public.css' ),
         array(),
-        '0.1.0'
+        '0.1.1'
       );
   }
 
