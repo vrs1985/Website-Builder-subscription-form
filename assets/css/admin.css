@@ -35,6 +35,11 @@
     margin: 20px auto;
     text-align: center;
 }
+.colorPicker{
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+}
 .subscribers-table > th{
     border: 1px solid black;
 }
@@ -80,4 +85,17 @@
 .remove-subscriber:hover{
     background-color: #F00;
     color: #000;
+}
+.form-table tr {
+    border: 1px solid;
+    border-color: #333;
+}
+.form-table th, .form-table td {
+    padding: 10px;
+}
+.form-table td {
+    text-align: left;
+}
+input[name="mainHeadingWM"], input[name="subHeadingWM"]{
+    width: 100%;
 }

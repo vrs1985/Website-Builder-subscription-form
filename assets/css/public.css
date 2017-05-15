@@ -3,21 +3,29 @@
     font-family: 'Orbitron', sans-serif;
 }
 .welcome_mat{
-    display: fixed;
+    display: block;
     position: absolute;
     width: 100%;
     height: 100vh;
     top: 0px;
     margin-top: 100vh;
+    overflow: hidden;
+    background-color: #484848;
+    z-index: 994;
 }
 .welcome_bg{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
+    width: 110vw;
+    height: 110vh;
+    position: relative;
     display: block;
     z-index: 1;
-    top: 0;
-    left: 0;
+}
+video.welcome_bg{
+    -webkit-transform: scaleX(1.8);
+   -moz-transform: scaleX(1.8);
+    -ms-transform: scaleX(1.8);
+     -o-transform: scaleX(1.8);
+        transform: scaleX(1.8);
 }
 .welcome_box{
     display: block;
@@ -39,23 +47,26 @@
     margin-top: 30vh;
     line-height: 2em;
     letter-spacing: 2.5px;
+    text-shadow: 1px 1px 1px #fff;
     text-align: center;
 }
 .welcome_sentence{
     font-size: 18px;
     display: block;
     margin: 1em;
+    text-shadow: 1px 1px 1px #fff;
     text-align: center;
 }
 .welcome_input{
     font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     display: block;
     margin: 0 auto;
-    padding: 6px 12px;
-    width: 250px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid #333;
+    padding: 6px 12px !important;
+    height: 34px;
+    width: 450px !important;
+    background-color: #ccc;
+    border: 1px solid #222;
 }
 .welcome_btn{
     display: inline-block;
@@ -101,6 +112,10 @@
     -webkit-border-radius: 50%;
             border-radius: 50%;
     margin-bottom: 1em;
+}
+.welcome_arrow > i{
+    display: block;
+    margin: 0.1em auto;
 }
 .btn_group{
     display: block;
@@ -177,7 +192,7 @@
     margin-top: 1em !important;
     width: 100%;
 }
-.subscriber_email > input{
+.subscriber_email{
     font-family: inherit !important;
     font-size: 18px !important;
     display: block !important;
@@ -239,5 +254,20 @@
     }
     .subscriber_close > i {
         font-size: 30px;
+    }
+    .welcome_box{
+        width: 100%;
+    }
+    .welcome_heading{
+        margin-top: 1em;
+        line-height: 1em;
+    }
+    .welcome_btn{
+        margin: 0.5em auto;
+    }
+    .welcome_input{
+        font-size: 18px;
+        height: 30px;
+        width: 100%;
     }
 }

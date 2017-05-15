@@ -11,10 +11,10 @@ if(!defined( 'WPINC' )){
     die;
 }
 
-
+require_once( plugin_dir_path( __FILE__ ) . 'wbsf-tune_plugin.php');
+require_once( plugin_dir_path( __FILE__ ) . 'wbsf-save-subscriber.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'wbsf-db-config.php');
 require_once( plugin_dir_path( __FILE__ ) . 'wbsf-enqueue-Class.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'wbsf-save-subscriber.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'wbsf-delete-subscriber.php' );
 register_activation_hook(__FILE__, 'tbl_install');
 register_activation_hook(__FILE__, 'tbl_install_data' );
