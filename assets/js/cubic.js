@@ -39,10 +39,10 @@ function AppModel (){
   }
 
   this.checkLB = ()=>{
-    if( this.oldSubscriber || window.location.href != "http://parthkapadia.com/"){
+    if( this.oldSubscriber /*|| window.location.href != "http://parthkapadia.com/"*/){
       return 'reject';
-    }else if( jQuery('#quoteWindow').css('display') != 'none' ){
-      return 'loop';
+    /*}else if( jQuery('#quoteWindow').css('display') != 'none' ){
+      return 'loop';*/
     }else if( this.time < this.twoHour ){
       return 'timing';
     }else if(document.querySelector('.subscriber')){
@@ -55,16 +55,16 @@ function AppModel (){
   this.timing = action=>{
     let time;
     switch (action){
-      case 'timing':
-        time = model.twoHour;
-        break;
-      case 'init':
-        time = model.delay;
-        break;
-      case 'loop':
+      case 'timing': // when refresh and time into storage less than set variable twoHour
         time = model.twoHour - model.time;
         break;
-      default:
+      case 'init': // first start plugin or if timing bigger than set variable twoHour
+        time = model.delay;
+        break;
+      case 'loop': // when need delay launch app
+        time = model.delay;
+        break;
+      default: // default time when all check aborted
         time = model.twoHour;
     }
     return time;
@@ -263,7 +263,6 @@ function AppCtrl(model, view) {
   this.view = view;
 
   this.init = ()=>{
-    this.model.storeMarker(false);
     this.launcher();
   };
 
@@ -315,10 +314,15 @@ function AppCtrl(model, view) {
       return;
     }
     if(ctrl.model.checkLB() === 'loop'){
-      setTimeout( ctrl.launcher, ctrl.model.delay);
+      console.log('loop ', ctrl.model.timing(ctrl.model.checkLB()));
+      setTimeout( ctrl.launcher, ctrl.model.timing(ctrl.model.checkLB()));
       return;
+    }else if(ctrl.model.checkLB() === 'timing'){
+      console.log('timing: ', ctrl.model.timing(ctrl.model.checkLB()) / (1000*60), ' min');
+      setTimeout( ctrl.launchLB, ctrl.model.timing(ctrl.model.checkLB()));
     }else{
-      setTimeout( ctrl.launchLB, ctrl.model.delay);
+      console.log('start through: ', ctrl.model.delay / 1000, ' sec');
+      setTimeout( ctrl.launchLB, ctrl.model.timing('init'));
     }
 
     ctrl.view.welcomeMat();
@@ -330,6 +334,8 @@ function AppCtrl(model, view) {
       setTimeout( ctrl.launchLB, ctrl.model.twoHour);
       return;
     }
+
+    ctrl.model.storeMarker(false);
     ctrl.view.listBuilder();
     ctrl.getSubscribeButton();
     setTimeout( ctrl.launchLB, ctrl.model.twoHour);
