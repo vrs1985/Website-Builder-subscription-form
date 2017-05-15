@@ -39,10 +39,10 @@ function AppModel (){
   }
 
   this.checkLB = ()=>{
-    if( this.oldSubscriber /*|| window.location.href != "http://parthkapadia.com/"*/){
+    if( this.oldSubscriber || window.location.href != "http://parthkapadia.com/"){
       return 'reject';
-    /*}else if( jQuery('#quoteWindow').css('display') != 'none' ){
-      return 'loop';*/
+    }else if( jQuery('#quoteWindow').css('display') != 'none' ){
+      return 'loop';
     }else if( this.time < this.twoHour ){
       return 'timing';
     }else if(document.querySelector('.subscriber')){
