@@ -39,10 +39,10 @@ function AppModel (){
   }
 
   this.checkLB = ()=>{
-    if( this.oldSubscriber /*|| window.location.href != "http://parthkapadia.com/"*/){
+    if( this.oldSubscriber || window.location.href != "http://parthkapadia.com/"){
       return 'reject';
-    /*}else if( jQuery('#quoteWindow').css('display') != 'none' ){
-      return 'loop';*/
+    }else if( jQuery('#quoteWindow').css('display') != 'none' ){
+      return 'loop';
     }else if( this.time < this.twoHour ){
       return 'timing';
     }else if(document.querySelector('.subscriber')){
@@ -314,14 +314,11 @@ function AppCtrl(model, view) {
       return;
     }
     if(ctrl.model.checkLB() === 'loop'){
-      console.log('loop ', ctrl.model.timing(ctrl.model.checkLB()));
       setTimeout( ctrl.launcher, ctrl.model.timing(ctrl.model.checkLB()));
       return;
     }else if(ctrl.model.checkLB() === 'timing'){
-      console.log('timing: ', ctrl.model.timing(ctrl.model.checkLB()) / (1000*60), ' min');
       setTimeout( ctrl.launchLB, ctrl.model.timing(ctrl.model.checkLB()));
     }else{
-      console.log('start through: ', ctrl.model.delay / 1000, ' sec');
       setTimeout( ctrl.launchLB, ctrl.model.timing('init'));
     }
 
