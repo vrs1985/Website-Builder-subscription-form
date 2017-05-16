@@ -10,7 +10,7 @@ function my_action_callback() {
   $user_name = 'Mr. Undefined';
   $event = $_POST['event'];
   $table_name = $wpdb->prefix . "subscribers";
-  echo 'your email ' . $user_email;
+  echo 'Your email ' . $user_email;
   $wpdb->insert(
     $table_name,
     array(

@@ -58,9 +58,25 @@ echo
                 <td>
                 </td>
               </tr>
+              <tr valign="top">
+                <th scope="row">Link on video</th>
+                <td>
+                <input type="text" name="videoWM" value=" '; echo get_option('videoWM');  echo '"/> <br>- insert link on video and necessary to mark above to use video
+                </td>
+                <td>
+                </td>
+              </tr>
+              <tr valign="top">
+                <th scope="row">Pages which includes Welcome Mat </th>
+                <td>
+                <textarea name="pageWM" value="">'; echo get_option('pageWM');  echo '</textarea> <br>- insert links on pages through comma which permit shows welcome mat
+                </td>
+                <td>
+                </td>
+              </tr>
             </table>
             <input type="hidden" name="action" value="update" />
-            <input type="hidden" name="page_options" value="activateWM, mainHeadingWM, subHeadingWM, eventWM, BackgroundWM, opacityWM" />
+            <input type="hidden" name="page_options" value="activateWM, mainHeadingWM, subHeadingWM, eventWM, BackgroundWM, opacityWM, videoWM, pageWM" />
             <p class="submit"> <input type="submit" class="button-primary" value="'; _e('Save Changes');  echo'" /> </p>
           </form>
           <script>

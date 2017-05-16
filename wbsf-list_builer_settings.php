@@ -18,8 +18,11 @@ echo '
                 </th>
                 <td>
                 <select name="delayLB">
+                <option value="5000">5sec</option>
+                <option value="20000" selected>20sec</option>
+                <option value="30000">30sec</option>
                 <option value="60000">1min</option>
-                <option value="120000" selected>2min</option>
+                <option value="120000">2min</option>
                 <option value="300000">5min</option>
                 <option value="600000">10min</option>
                 </select> - last value:

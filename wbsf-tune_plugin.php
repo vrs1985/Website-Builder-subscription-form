@@ -19,7 +19,9 @@ function wbsf_options(){
     $subHeadingWM = get_option("subHeadingWM");
     $eventWM = get_option("eventWM");
     $BackgroundWM = get_option("BackgroundWM");
-    echo json_encode(array("1"=> $activateWM, "2"=>$mainHeadingWM, "3"=>$subHeadingWM, "4"=>$eventWM, "5"=>$BackgroundWM)) ;
+    $pageWM = get_option("pageWM");
+    $videoWM = get_option("videoWM");
+    echo json_encode(array("1"=> $activateWM, "2"=>$mainHeadingWM, "3"=>$subHeadingWM, "4"=>$eventWM, "5"=>$BackgroundWM, "6"=>$pageWM, "7"=>$videoWM)) ;
   }elseif($wbsf_affiliate === 'listBuilder'){
     $activateLB = get_option("activateLB");
     $timingLB = get_option("timingLB");

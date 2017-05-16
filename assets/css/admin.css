@@ -96,6 +96,13 @@
 .form-table td {
     text-align: left;
 }
-input[name="mainHeadingWM"], input[name="subHeadingWM"]{
+input[name="pictureWM"]{
+    width: 70%;
+}
+input[name="mainHeadingWM"], input[name="subHeadingWM"],
+input[name="videoWM"]{
     width: 100%;
+}
+textarea[name="pageWM"]{
+    width: 100% !important;
 }

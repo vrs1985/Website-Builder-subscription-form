@@ -39,10 +39,18 @@ function AppModel (){
   }
 
   this.checkLB = ()=>{
-    if( this.oldSubscriber || window.location.href != "http://parthkapadia.com/"){
+    let equalpage = true;
+    let pages = this.WMOptions[6].split(', ');
+    for (let i=0; i<pages.length; i++){
+      if(window.location.href == pages[i]){
+        equalpage = false;
+      }
+    }
+
+    if( this.oldSubscriber || equalpage){
       return 'reject';
-    }else if( jQuery('#quoteWindow').css('display') != 'none' ){
-      return 'loop';
+    /*}else if( jQuery('#quoteWindow').css('display') != 'none' ){
+      return 'loop';*/
     }else if( this.time < this.twoHour ){
       return 'timing';
     }else if(document.querySelector('.subscriber')){
@@ -142,7 +150,7 @@ function AppModel (){
       'event': event
     };
     jQuery.post(myajax.url, data, function(response) {
-      alert('thank you ' + response + ' was added');
+      alert('Thank you! ' + response + ' was added');
     });
   };
 
@@ -206,7 +214,7 @@ function AppView(model) {
         backgroundElem.loop = 'loop';
         backgroundElem.setAttribute("autoplay", '');
         backgroundElem.setAttribute("type", 'video/mp4');
-        backgroundElem.src = "http://parthkapadia.com/wp-content/uploads/2016/05/movie.mp4";
+        backgroundElem.src = view.model.WMOptions[7];
       }else if(tag === 'div'){
         backgroundElem.style.backgroundColor = resource;
       }else if(tag === 'span'){
@@ -249,7 +257,7 @@ function AppView(model) {
         <div class="welcome_arrow" data-event='close'>
           <i class="fa fa-chevron-down" aria-hidden="true"></i></div></div>`;
       view.createParentElement("welcome_mat", html, mediaElem);
-      view.model.smoothScroll();
+      // view.model.smoothScroll();
   };
 
 
@@ -261,6 +269,7 @@ function AppCtrl(model, view) {
   let ctrl = this;
   this.model = model;
   this.view = view;
+  this.startCountWM = 0;
 
   this.init = ()=>{
     this.launcher();
@@ -313,30 +322,38 @@ function AppCtrl(model, view) {
     if(ctrl.model.checkLB() === 'reject'){
       return;
     }
+    let timeToStart = ctrl.model.timing(ctrl.model.checkLB());
+
     if(ctrl.model.checkLB() === 'loop'){
-      setTimeout( ctrl.launcher, ctrl.model.timing(ctrl.model.checkLB()));
+      setTimeout( ctrl.launcher, timeToStart);
       return;
-    }else if(ctrl.model.checkLB() === 'timing'){
-      setTimeout( ctrl.launchLB, ctrl.model.timing(ctrl.model.checkLB()));
     }else{
-      setTimeout( ctrl.launchLB, ctrl.model.timing('init'));
+      setTimeout( ctrl.launchLB, timeToStart);
     }
 
-    ctrl.view.welcomeMat();
-    ctrl.getMatButton();
   };
 
   this.launchLB = ()=>{
+
     if(ctrl.model.checkLB() === 'timeout'){
       setTimeout( ctrl.launchLB, ctrl.model.twoHour);
       return;
     }
+    var launchWM = (ctrl.startCountWM < 1)?ctrl.launchWM() : '';
 
     ctrl.model.storeMarker(false);
     ctrl.view.listBuilder();
     ctrl.getSubscribeButton();
     setTimeout( ctrl.launchLB, ctrl.model.twoHour);
     };
+
+  this.launchWM = ()=>{
+    setTimeout( ()=>{
+      ctrl.view.welcomeMat();
+      ctrl.getMatButton();
+    }, 30000);
+    ctrl.startCountWM++
+  };
 
   this.init();
 }

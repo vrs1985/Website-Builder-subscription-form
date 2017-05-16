@@ -67,10 +67,12 @@ function tbl_install_data() {
 }
 
 add_option("activateWM", "true");
+add_option("pageWM", "");
 add_option("mainHeadingWM", "Stay on top of the latest in IoT");
 add_option("subHeadingWM", "Don't fall behind...");
 add_option("eventWM", "Welcome Mat");
 add_option("BackgroundWM", "#ccc");
+add_option("videoWM", "http://parthkapadia.com/wp-content/uploads/2016/05/movie.mp4");
 add_option("activateLB", "true");
 add_option("timingLB", "7200000");
 add_option("delayLB", "2000");
