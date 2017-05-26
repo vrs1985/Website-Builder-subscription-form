@@ -41,16 +41,19 @@ function AppModel (){
   this.checkLB = ()=>{
     let equalpage = true;
     let pages = this.WMOptions[6].split(', ');
+    let quoteWindow = (jQuery('div').is('#quoteWindow'))? jQuery('#quoteWindow').css('display') : "none";
     for (let i=0; i<pages.length; i++){
       if(window.location.href == pages[i]){
+        equalpage = false;
+      }else if(this.WMOptions[8]){
         equalpage = false;
       }
     }
 
     if( this.oldSubscriber || equalpage){
       return 'reject';
-    /*}else if( jQuery('#quoteWindow').css('display') != 'none' ){
-      return 'loop';*/
+    }else if(quoteWindow != 'none' ){
+      return 'loop';
     }else if( this.time < this.twoHour ){
       return 'timing';
     }else if(document.querySelector('.subscriber')){

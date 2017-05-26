@@ -68,6 +68,7 @@ function tbl_install_data() {
 
 add_option("activateWM", "true");
 add_option("pageWM", "");
+add_option("allPageWM", "true");
 add_option("mainHeadingWM", "Stay on top of the latest in IoT");
 add_option("subHeadingWM", "Don't fall behind...");
 add_option("eventWM", "Welcome Mat");
